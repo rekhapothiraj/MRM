@@ -43,42 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MRM.Data.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MRM.Data.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MRM.Data.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MRM.Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MRM.Data.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MRM.Data.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site.cs">
-      <DependentUpon>MRM.Data.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="MRM.Data.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MRM.Data.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="MRM.Data.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MRM.Data.Context.cs</LastGenOutput>
-    </None>
-    <None Include="MRM.Data.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MRM.Data.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

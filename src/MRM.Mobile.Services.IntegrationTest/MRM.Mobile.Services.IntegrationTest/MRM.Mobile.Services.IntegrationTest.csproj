@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D48217FD-7035-4F4C-B610-45F77DB6CF09}</ProjectGuid>
+    <ProjectGuid>{D7A01732-8D0E-4A54-B83D-3EB6C0A17CD3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MRM.Mobile.DomainModel</RootNamespace>
-    <AssemblyName>MRM.Mobile.DomainModel</AssemblyName>
+    <RootNamespace>MRM.Mobile.Services.IntegrationTest</RootNamespace>
+    <AssemblyName>MRM.Mobile.Services.IntegrationTest</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,16 +31,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\..\..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,20 +48,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Booking.cs" />
-    <Compile Include="Models\Mapping\BookingMap.cs" />
-    <Compile Include="Models\Mapping\MeetingRoomMap.cs" />
-    <Compile Include="Models\Mapping\SiteMap.cs" />
-    <Compile Include="Models\Mapping\UserMap.cs" />
-    <Compile Include="Models\MeetingRoom.cs" />
-    <Compile Include="Models\MRMContext.cs" />
-    <Compile Include="Models\Site.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="DataServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\MRM.Mobile.DomainModel.Models.Booking.datasource" />
+    <None Include="Properties\DataSources\MRM.Mobile.DomainModel.Models.MeetingRoom.datasource" />
+    <None Include="Properties\DataSources\MRM.Mobile.DomainModel.Models.Site.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MRM.Mobile.Service\MRM.Mobile.Service.csproj">
+      <Project>{6C3D09AF-CBF5-4A59-9FBD-5FDA000198CD}</Project>
+      <Name>MRM.Mobile.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MRM.Mobile.DomainModel\MRM.Mobile.DomainModel\MRM.Mobile.DomainModel.csproj">
+      <Project>{D48217FD-7035-4F4C-B610-45F77DB6CF09}</Project>
+      <Name>MRM.Mobile.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MRM.Mobile.InfraStructure\MRM.Mobile.InfraStructure\MRM.Mobile.InfraStructure.csproj">
+      <Project>{B22D2417-EF4B-40AD-9D91-36572E5D0A90}</Project>
+      <Name>MRM.Mobile.InfraStructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

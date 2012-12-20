@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D48217FD-7035-4F4C-B610-45F77DB6CF09}</ProjectGuid>
+    <ProjectGuid>{B22D2417-EF4B-40AD-9D91-36572E5D0A90}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MRM.Mobile.DomainModel</RootNamespace>
-    <AssemblyName>MRM.Mobile.DomainModel</AssemblyName>
+    <RootNamespace>MRM.Mobile.InfraStructure</RootNamespace>
+    <AssemblyName>MRM.Mobile.InfraStructure</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,16 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\..\..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    <Reference Include="Autofac">
+      <HintPath>..\..\..\packages\Autofac.2.6.3.862\lib\NET40\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\..\..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\..\..\packages\Autofac.2.6.3.862\lib\NET40\Autofac.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,20 +47,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Booking.cs" />
-    <Compile Include="Models\Mapping\BookingMap.cs" />
-    <Compile Include="Models\Mapping\MeetingRoomMap.cs" />
-    <Compile Include="Models\Mapping\SiteMap.cs" />
-    <Compile Include="Models\Mapping\UserMap.cs" />
-    <Compile Include="Models\MeetingRoom.cs" />
-    <Compile Include="Models\MRMContext.cs" />
-    <Compile Include="Models\Site.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="DependencyMapper.cs" />
+    <Compile Include="DependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MRM.Mobile.Service\MRM.Mobile.Service.csproj">
+      <Project>{6C3D09AF-CBF5-4A59-9FBD-5FDA000198CD}</Project>
+      <Name>MRM.Mobile.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
