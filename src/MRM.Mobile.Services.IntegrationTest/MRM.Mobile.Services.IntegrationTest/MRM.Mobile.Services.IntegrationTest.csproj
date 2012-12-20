@@ -60,9 +60,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\MRM.Mobile.DomainModel.Models.Booking.datasource" />
-    <None Include="Properties\DataSources\MRM.Mobile.DomainModel.Models.MeetingRoom.datasource" />
-    <None Include="Properties\DataSources\MRM.Mobile.DomainModel.Models.Site.datasource" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

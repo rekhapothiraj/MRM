@@ -1,4 +1,5 @@
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using MRM.Mobile.DomainModel.Models.Mapping;
 using NUnit.Framework;
 using System.Linq;
@@ -13,8 +14,10 @@ namespace MRM.Mobile.DomainModel.Models
         }
 
 		public MRMContext()
-			: base("Name=MRMContext")
+            : base("Name=MRMContext")
 		{
+		    this.Configuration.LazyLoadingEnabled = false;
+		    this.Configuration.ProxyCreationEnabled = false;
 		}
 
         public DbSet<Booking> Bookings { get; set; }
@@ -28,6 +31,7 @@ namespace MRM.Mobile.DomainModel.Models
             modelBuilder.Configurations.Add(new MeetingRoomMap());
             modelBuilder.Configurations.Add(new SiteMap());
             modelBuilder.Configurations.Add(new UserMap());
+            modelBuilder.Conventions.Remove<PluralizingEntitySetNameConvention>();
         }
     }
 
