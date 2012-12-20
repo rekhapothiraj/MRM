@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
+﻿using System.Linq;
 using MRM.Mobile.InfraStructure;
 using MRM.Mobile.Service;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace MRM.Mobile.Services.IntegrationTest
 {
