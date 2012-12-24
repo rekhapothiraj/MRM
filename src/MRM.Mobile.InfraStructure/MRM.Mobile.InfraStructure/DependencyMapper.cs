@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
+﻿using System.ServiceModel;
 using Autofac;
-using MRM.Mobile.Service;
 
 namespace MRM.Mobile.InfraStructure
 {
@@ -12,8 +7,8 @@ namespace MRM.Mobile.InfraStructure
     {
         public ContainerBuilder Register(ContainerBuilder builder)
         {
+          
             builder.Register(c => new ChannelFactory<MRM.Mobile.Service.IDataService>("DataServiceTcpEndpoint").CreateChannel()).As<MRM.Mobile.Service.IDataService>().InstancePerDependency();
-
             return builder;
 
         }

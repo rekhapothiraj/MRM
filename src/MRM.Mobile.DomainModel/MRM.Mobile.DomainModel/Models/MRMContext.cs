@@ -6,7 +6,15 @@ using System.Linq;
 
 namespace MRM.Mobile.DomainModel.Models
 {
-    public class MRMContext : DbContext
+    public interface IMRMContext
+    {
+        IDbSet<Booking> Bookings { get; set; }
+        IDbSet<MeetingRoom> MeetingRooms { get; set; }
+        IDbSet<Site> Sites { get; set; }
+        IDbSet<User> Users { get; set; }
+    }
+
+    public class MRMContext : DbContext, IMRMContext
     {
         static MRMContext()
         {
@@ -20,10 +28,10 @@ namespace MRM.Mobile.DomainModel.Models
 		    this.Configuration.ProxyCreationEnabled = false;
 		}
 
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<MeetingRoom> MeetingRooms { get; set; }
-        public DbSet<Site> Sites { get; set; }
-        public DbSet<User> Users { get; set; }
+        public IDbSet<Booking> Bookings { get; set; }
+        public IDbSet<MeetingRoom> MeetingRooms { get; set; }
+        public IDbSet<Site> Sites { get; set; }
+        public IDbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

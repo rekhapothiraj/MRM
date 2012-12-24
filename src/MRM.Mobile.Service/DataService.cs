@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using MRM.Mobile.Data;
 using MRM.Mobile.DomainModel.Models;
 using System.Linq;
 
@@ -9,15 +10,23 @@ namespace MRM.Mobile.Service
     public class DataService : IDataService
     {
         private MRMContext _mrmContext;
+        private IRepository<Site> _siteRepository;
+        //public DataService()
+        //{
+        //    _siteRepository = new SiteRepository(new UnitOfWork());
+        //}
+        
 
-        public DataService()
+        public DataService(IRepository<Site> siteRepository)
         {
-            _mrmContext = new MRMContext();
+            // _mrmContext = new MRMContext();
+            _siteRepository =  siteRepository;
         }
 
         public IEnumerable<Site> GetSites()
         {
-            var sites = _mrmContext.Sites.ToList();
+            var sites = _siteRepository.GetAll();
+                //_mrmContext.Sites.ToList();
             return sites;
         }
 
@@ -33,7 +42,15 @@ namespace MRM.Mobile.Service
 
         public bool AddSite(Site site)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                _siteRepository.Add(site);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool AddMeetingRoom(MeetingRoom meetingRoom)
